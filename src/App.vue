@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <hr>
+    <span>使用vuex count</span>
+    <span>{{$store.state.count}}</span>
+    <button @click="add">add</button>
+    <button @click="del">del</button>
     <h1>我是App.vue</h1>
     <!-- 类似于超链接 -->
     <router-link to="/home">首页</router-link>
@@ -35,6 +39,12 @@
 export default {
   name: 'App',
   methods: {
+    add () {
+      this.$store.commit('increment') //执行 store mutations 中的方法
+    },
+    del () {
+      this.$store.commit('decrement')
+    },
     codeBtn () {
       //代码的形式跳转路由
       new Promise((resolve, reason) => {
