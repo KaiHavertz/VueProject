@@ -1,5 +1,5 @@
 # 这是一个VUE project
-##　目前包含
+## 目前包含
 - vue-router 模块
 - vue-promise 模块
 - vue-路由守卫
