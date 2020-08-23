@@ -1,27 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <hr>
+    <h1>我是App.vue</h1>
+    <!-- 类似于超链接 -->
+    <router-link to="/home">首页</router-link>
+    <hr>
+    <hr>
+    <router-link :to="{
+                 path:'/about/123',
+                 query:{
+                   param1:'hello',
+                   param2:23
+                 }
+                 }">关于</router-link>
+    <hr>
+
+    <router-link to="/datePicker">时间选择器</router-link>
+    <hr>
+    <el-button @click="codeBtn"
+               id="codeBtn"
+               type="button">代码的形式跳转路由</el-button>
+    <hr>
+    <router-link :to="{
+                 path:'/datePicker/child'
+                 }">进入 子 路 由</router-link>
+    <hr>
+    <!-- router-view是一个坑，用于显示当前路由的内容 -->
+    <router-view></router-view>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods: {
+    codeBtn () {
+      //代码的形式跳转路由
+      new Promise((resolve, reason) => {
+        resolve('resolve')
+        reason('reason')
+        this.$router.push({
+          path: '/CodeRouter/id是',
+          params: {
+            param1: "ssss"
+          },
+          query: {
+            param1: 'a'
+          }
+
+        }).then((data) => {
+          console.log('成功', data)
+        }).catch((data) => {
+          console.log('失败', data)
+        })
+      })
+    }
   }
 }
 </script>
-
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
