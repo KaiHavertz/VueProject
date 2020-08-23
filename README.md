@@ -1,19 +1,13 @@
-# vue-project
+# 这是一个VUE project
+##　目前包含
+- vue-router 模块
+- vue-promise 模块
+- vue-路由守卫
+- vue-路由传参
+- vue-vuex
 
-## Project setup
-```
-npm install
-```
+## 开发
+    npm run dev
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 部署
+    npm run build
