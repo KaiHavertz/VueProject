@@ -41,12 +41,12 @@
 
 <script>
 import axios from 'axios'
-import student from "@/api/student";
+import department from "@/api/department";
 export default {
   name: 'App',
   methods: {
     useAxios () {
-      student.queryAllStudent().then(res => {
+      department.getDepartmentList().then(res => {
         console.log('返回数据：', res);
       }).catch(err => {
         console.log(err)
@@ -56,7 +56,11 @@ export default {
       this.$store.commit('increment') //执行 store mutations 中的方法
     },
     del () {
-      this.$store.commit('decrement')
+      this.$store.dispatch('decrement').then(data => {
+        console.log(data)
+      }).catch(err => {
+        console.log(err)
+      })
     },
     codeBtn () {
       //代码的形式跳转路由

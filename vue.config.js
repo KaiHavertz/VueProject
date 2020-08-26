@@ -18,13 +18,13 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    //配置代理，所有  http://localhost:8080/api 走 http://localhost:8080/
+    //配置代理，所有  */api 走 http://localhost:8080/
     proxy: {
-      '/wardemo': {
-        target: `http://localhost:8081/wardemo`,
-        changeOrigin: true, //是否允许跨域
+      '/api': {
+        target: `http://47.102.115.146:8080/`,
+        changeOrigin: true,
         pathRewrite: {
-          '^/wardemo': '/wardemo'
+          '^/api': ''
         }
       }
     }
