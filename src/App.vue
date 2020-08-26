@@ -29,6 +29,10 @@
                  path:'/datePicker/child'
                  }">进入 子 路 由</router-link>
     <hr>
+    <el-button @click="useAxiosPro"
+               id="useAxiosPro"
+               type="button">使用 axios 封装</el-button>
+    <hr>
     <el-button @click="useAxios"
                id="useAxios"
                type="button">使用 axios</el-button>
@@ -46,11 +50,18 @@ import student from "@/wardemo/student";
 export default {
   name: 'App',
   methods: {
-    useAxios () {
+    useAxiosPro () {
       student.queryAllStudent().then(res => {
         console.log('返回数据：', res);
       }).catch(err => {
         console.log(err)
+      })
+    },
+    useAxios () {
+      axios.get('http://101.37.32.181:8080/wardemo/student/queryAllStudent').then(data => {
+        console.log('useAxios data', data);
+      }).catch(err => {
+        console.log('useAxios err', err);
       })
     },
     add () {
