@@ -1,7 +1,8 @@
 import axios from 'axios'
 // 创建axios
 const service = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  //baseURL: 'http://localhost:8080/api',
+  baseURL: 'http://localhost:8080/wardemo',
   timeout: 10000,
 })
 // 设置axios请求拦截器

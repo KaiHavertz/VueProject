@@ -42,11 +42,12 @@
 <script>
 import axios from 'axios'
 import department from "@/api/department";
+import student from "@/wardemo/student";
 export default {
   name: 'App',
   methods: {
     useAxios () {
-      department.getDepartmentList().then(res => {
+      student.queryAllStudent().then(res => {
         console.log('返回数据：', res);
       }).catch(err => {
         console.log(err)
