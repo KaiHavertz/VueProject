@@ -5,6 +5,7 @@ import router from './router/index.js' //经测试：router 定义为大写 开�
 import store from './store' //可以如果是index.js 可以省略
 Vue.config.productionTip = false
 
+
 //引入 element ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

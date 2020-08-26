@@ -29,6 +29,10 @@
                  path:'/datePicker/child'
                  }">进入 子 路 由</router-link>
     <hr>
+    <el-button @click="useAxios"
+               id="useAxios"
+               type="button">使用 axios</el-button>
+    <hr>
     <!-- router-view是一个坑，用于显示当前路由的内容 -->
     <router-view></router-view>
 
@@ -36,9 +40,18 @@
 </template>
 
 <script>
+import axios from 'axios'
+import student from "@/api/student";
 export default {
   name: 'App',
   methods: {
+    useAxios () {
+      student.queryAllStudent().then(res => {
+        console.log('返回数据：', res);
+      }).catch(err => {
+        console.log(err)
+      })
+    },
     add () {
       this.$store.commit('increment') //执行 store mutations 中的方法
     },
